@@ -5,6 +5,42 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    'use strict';
 
+    class Post {
+        constructor(author, text, date) {
+            this.autor = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        edit() {
+            this.text = prompt("Введите текст");
+        }
+    }
+
+    const post1 = new Post("Jane", "Good night", "26.08");
+    const post2 = new Post("Tom", "Hello, friends", "25.09");
+    post1.edit();
+    post2.edit();
+
+    class AttachedPost extends Post {
+        constructor(author, text, date, highlighted) {
+            super(author, text, date);
+            this.highlighted = highlighted;
+
+        }
+
+        makeTextHighlighted() {
+            this.highlighted = "true";
+            this.text = prompt("Введите текст");
+        }
+    }
+
+
+    const post3 = new AttachedPost("Roby", "Happy english", "15.09", "false");
+    post3.makeTextHighlighted();
+</script>
 </body>
 </html>
